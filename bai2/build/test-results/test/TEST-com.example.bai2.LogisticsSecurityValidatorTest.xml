@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.bai2.LogisticsSecurityValidatorTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-08-27T12:04:57.823Z" hostname="DESKTOP-MFF1I3E" time="0.269">
+  <properties/>
+  <testcase name="Test Case 1: SQL An toàn -&gt; Ép thêm LIMIT 100" classname="com.example.bai2.LogisticsSecurityValidatorTest" time="0.111"/>
+  <testcase name="Test Case 4: PII Masking -&gt; Khách hàng được che giấu họ tên và SĐT" classname="com.example.bai2.LogisticsSecurityValidatorTest" time="0.099"/>
+  <testcase name="Test Case 3: Path Traversal -&gt; Ném SecurityException" classname="com.example.bai2.LogisticsSecurityValidatorTest" time="0.011"/>
+  <testcase name="Test Case 2: SQL Độc hại -&gt; Ném SecurityException" classname="com.example.bai2.LogisticsSecurityValidatorTest" time="0.004"/>
+  <system-out><![CDATA[[TEST 1 OUTPUT] SELECT * FROM deliveries WHERE hub_code = 'HN-01' LIMIT 100
+[TEST 4.1 OUTPUT] N*** V*** A*** (091****678)
+[TEST 4.2 LOG PARSING] LogIncidentDTO[timestamp=2026-08-21 08:30:15, serviceName=sorting-hub-hn, hubCode=HN-01, trackingCode=RK-2026-001, maskedCustomer=N*** V*** A*** (091****678), errorMessage=Delivery delayed!]
+[TEST 3 OUTPUT] Blocked Path Traversal: Security Violation: Path traversal attempt detected with path: ../../Windows/System32/config.sys
+[TEST 2 OUTPUT] Blocked malicious SQL: Security Violation: Detected forbidden SQL keywords or injection tokens.
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
